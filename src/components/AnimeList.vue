@@ -1,0 +1,64 @@
+<template>
+  <article className="anime">
+    <div className="img-container">
+      <img :src="anime.images.jpg.large_image_url" :alt="anime.title" />
+    </div>
+    <div className="anime-footer">
+      <h4>{{ anime.title }}</h4>
+      <p></p>
+
+      <router-link
+        :to="{
+          name: 'anime',
+          params: { id: anime.mal_id },
+          path: `/anime/${anime.id}`,
+        }"
+        className="btn btn-primary btn-details"
+      >
+        details
+      </router-link>
+
+      <button className="btn btn-primary btn-details">Add to watchlist</button>
+    </div>
+  </article>
+</template>
+<script>
+export default {
+  props: ['anime'],
+}
+</script>
+<style>
+.anime {
+  background: var(--mainWhite);
+  margin-bottom: 2rem;
+  box-shadow: var(--lightShadow);
+  transition: var(--mainTransition);
+  display: grid;
+  grid-template-rows: auto 1fr;
+  border-radius: var(--mainBorderRadius);
+}
+.anime:hover {
+  box-shadow: var(--darkShadow);
+}
+.anime img {
+  height: 20rem;
+  object-fit: cover;
+  border-top-left-radius: var(--mainBorderRadius);
+  border-top-right-radius: var(--mainBorderRadius);
+}
+.anime-footer {
+  padding: 1.5rem;
+}
+.anime-footer h3,
+.anime-footer h4,
+.anime-footer p {
+  margin-bottom: 0.3rem;
+}
+.anime-footer h3 {
+  font-size: 2rem;
+}
+.anime-footer p {
+  color: var(--primaryColor);
+  margin-bottom: 0.5rem;
+}
+</style>
