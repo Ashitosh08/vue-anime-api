@@ -11,12 +11,15 @@
 
   <section className="section">
     <h2 className="section-title">Animes</h2>
-    <div className="animes-center">
+    <div className="animes-center" v-if="animeList.length > 1">
       <anime-list-vue
         v-for="anime in animeList"
         :key="anime.mal_id"
         :anime="anime"
       />
+    </div>
+    <div className="section-title" v-else>
+      <h4>No animes matched your search criteria</h4>
     </div>
   </section>
 </template>
@@ -29,7 +32,7 @@ export default {
   },
 
   setup() {
-    const searchTerm = ref('naruto')
+    const searchTerm = ref('')
     const animeList = ref([])
     // console.log(searchTerm)
     const handleSearch = async () => {

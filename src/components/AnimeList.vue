@@ -22,6 +22,7 @@
     </div>
   </article>
 </template>
+
 <script>
 export default {
   props: ['anime'],
@@ -60,5 +61,13 @@ export default {
 .anime-footer p {
   color: var(--primaryColor);
   margin-bottom: 0.5rem;
+}
+.section-title {
+  font-size: 3rem;
+  text-transform: capitalize;
+  letter-spacing: var(--mainSpacing);
+  text-align: center;
+  margin-bottom: 3rem;
+  margin-top: 1rem;
 }
 </style>
