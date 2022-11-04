@@ -1,4 +1,4 @@
-<template lang="">
+<template>
   <section
     className="section anime-section"
     v-for="anime in animes"
@@ -9,10 +9,7 @@
     <div className="details">
       <img :src="anime.images.jpg.large_image_url" alt="{{anime.title}}" />
       <div className="details-info">
-        <p>
-          <span className="details-data">title :{{ anime.title }}</span>
-          {{ this.$route.params.id }}
-        </p>
+        <p><span className="details-data">title :</span>{{ anime.title }}</p>
         <p>
           <span className="details-data">episodes :</span>{{ anime.episodes }}
         </p>
@@ -35,7 +32,7 @@ export default {
   data() {
     return {
       animes: [],
-      id: this.$route.params.id,
+      // id: this.$route.params.id,
     }
   },
   mounted() {

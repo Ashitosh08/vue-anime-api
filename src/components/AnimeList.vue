@@ -1,6 +1,7 @@
 <template>
   <article className="anime">
-    <div className="img-container">
+    <div></div>
+    <div className="img-container" :key="anime.mal_id">
       <img :src="anime.images.jpg.large_image_url" :alt="anime.title" />
     </div>
     <div className="anime-footer">
@@ -11,21 +12,31 @@
         :to="{
           name: 'anime',
           params: { id: anime.mal_id },
-          path: `/anime/${anime.id}`,
         }"
         className="btn btn-primary btn-details"
       >
         details
       </router-link>
 
-      <button className="btn btn-primary btn-details">Add to watchlist</button>
+      <button
+        className="btn btn-primary btn-details"
+        name="watchlist"
+        @click="addToWatchlist(anime)"
+      >
+        Add to watchlist
+      </button>
     </div>
   </article>
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 export default {
   props: ['anime'],
+
+  methods: {
+    ...mapActions(['addToWatchlist']),
+  },
 }
 </script>
 <style>

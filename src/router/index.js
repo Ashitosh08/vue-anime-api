@@ -9,11 +9,12 @@ const routes = [
   },
   {
     path: '/watchlist',
-    name: 'WatchListView',
+    name: 'watchlist',
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () => import('../views/WatchlistView.vue'),
+    props: true,
   },
   {
     path: '/LoginReg',
